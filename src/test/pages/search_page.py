@@ -5,20 +5,19 @@ from src.test.pages.base_page import BasePage
 
 class GoogleSearchPageLocators:
     """ Locators for the Google Search Page """
+    page_url = 'http://www.google.com'
     google_search_box = (By.NAME, 'q')
 
 
-class GoogleSearchPage(BasePage):
+class GoogleSearchPage(BasePage, GoogleSearchPageLocators):
     """ Methods and helpers to work with the Google Search Page """
+
     def open(self):
-        self.driver.get('http://www.google.com')
+        self.driver.get(self.page_url)
 
     def search_for_a_word(self, word):
-        self.driver.find_element(*GoogleSearchPageLocators.google_search_box).send_keys(word + Keys.ENTER)
+        self.driver.find_element(*self.google_search_box).send_keys(word + Keys.ENTER)
 
     @property
-    def search_results(self):
-        return [result.text for result in self.driver.find_elements(By.TAG_NAME, 'h3')]
-
-
-search_page = GoogleSearchPage()
+    def search_top_result(self):
+        return self.driver.find_element(By.TAG_NAME, 'h3').text
