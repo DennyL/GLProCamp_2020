@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-from src.test.pages.base_page import BasePage
+from homeworks_1_2.src.test.pages.base_page import BasePage
 
 
 class GoogleSearchPageLocators:
@@ -17,6 +17,9 @@ class GoogleSearchPage(BasePage, GoogleSearchPageLocators):
 
     def search_for_a_word(self, word):
         self.driver.find_element(*self.google_search_box).send_keys(word + Keys.ENTER)
+
+    def clear_search_box(self):
+        self.driver.find_element(*self.google_search_box).clear()
 
     @property
     def search_top_result(self):

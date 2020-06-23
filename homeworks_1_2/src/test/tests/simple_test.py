@@ -1,8 +1,8 @@
 import pytest
-from src.test.pages.search_page import GoogleSearchPage
+from homeworks_1_2.src.test.pages.search_page import GoogleSearchPage
 
 
-@pytest.fixture
+@pytest.fixture(scope='session')
 def page():
     search_page = GoogleSearchPage(with_browser='Opera')
     search_page.open()
@@ -13,5 +13,6 @@ def page():
 @pytest.mark.parametrize('word', ('Selenium', 'Python', 'Groovy'))
 def test_search_in_google_com(page, word):
     """ verifies is Google Search page returns results for the words given as parameters """
+    page.clear_search_box()
     page.search_for_a_word(word)
     assert word in page.search_top_result
