@@ -8,12 +8,12 @@ class BasePage:
 
     """ The base object that contains common to all the page objects in the app """
 
-    ##### INIT FOR LOCAL RUNS #####
-
+    # #### INIT FOR LOCAL RUNS #####
+    #
     # def __init__(self, with_browser='chrome'):
-    #     if with_browser == 'chrome':
+    #     if with_browser.lower() == 'chrome':
     #         self.driver = webdriver.Chrome(ChromeDriverManager().install())
-    #     elif with_browser == 'opera':
+    #     elif with_browser.lower() == 'opera':
     #         self.driver = webdriver.Opera(executable_path=OperaDriverManager().install())
     #     else:
     #         raise Exception('Browser name is not defined')
