@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-from homeworks_1_2.src.test.pages.base_page import BasePage
+from homework_2.src.test.pages.base_page import BasePage
 
 
 class GoogleSearchPageLocators:
