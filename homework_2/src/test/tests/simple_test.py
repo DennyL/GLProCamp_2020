@@ -1,10 +1,10 @@
 import pytest
-from homeworks_1_2.src.test.pages.search_page import GoogleSearchPage
+from homework_2.src.test.pages.search_page import GoogleSearchPage
 
 
 @pytest.fixture(scope='session')
 def page():
-    search_page = GoogleSearchPage(with_browser='Opera')
+    search_page = GoogleSearchPage(with_browser='Chrome')
     search_page.open()
     yield search_page
     search_page.destroy_and_quit()
