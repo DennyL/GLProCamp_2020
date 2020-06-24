@@ -5,12 +5,14 @@ Selenium section**
 1. Create virtual environment;
 2. Activate the virtual environment;
 3. Install all the libraries from the requirements file in the root folder:
+
 _$ pip install -r requirements_
 
 **For homework_1:**
 1. cd into the homework_1 folder;
 Please note, the homework_1 code gives you possibility to run tests with either Chrome or Opera browser. Chrome is set by default;
 2. run pytest with the key -v (more readable output):
+
 _(venv) user@user: GL_ProCamp_2020_Selenium/homeworks_1_2$ pytest -v_
 
 **For homework_2:**
@@ -20,9 +22,11 @@ Please note, the homework_2 code gives you possibility to run tests with either 
 your selenium server in being run on; 
 3. cd into the homework_2 folder;
 4. run pytest with the key -v (more readable output):
+
 _(venv) user@user: GL_ProCamp_2020_Selenium/homeworks_1_2$ pytest -v_
 
 **For homework_3:**
 1. cd into the homework_3 folder;
 2. run pytest with keys -v and -s (-s enables stdout capturing for the listener's output, -v - makes the output more readable):
+
 _(venv) user@user: GL_ProCamp_2020_Selenium/homeworks_3$ pytest -vs_
