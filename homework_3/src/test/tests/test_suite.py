@@ -35,6 +35,9 @@ def test_presence_of_element_in_pages(admin_page, page_locators, test_element_to
 
 @pytest.mark.parametrize('external_links', CountriesPage.in_country_external_links_locators)
 def test_countries_external_links(countries_page, external_links):
+    """ verifies if a click on each external link in the first country page
+        opens it in a new window in a browser. Then switches to that window and closes it
+    """
     for element_name, element_locator in external_links.items():
         # passing the click on locator to the wrapper
         # that returns True if number of opened windows increased by 1 after the click

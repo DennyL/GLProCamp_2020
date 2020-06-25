@@ -23,6 +23,8 @@ class CountriesPageLocators:
 
 class CountriesPage(BasePage, CountriesPageLocators):
 
+    """ Methods to work with the Countries Page """
+
     def open(self):
         page_locator = (By.CSS_SELECTOR, 'ul#box-apps-menu li.app[data-code=countries]')
         WebDriverWait(self.driver, 5).until(ec.element_to_be_clickable(page_locator))
