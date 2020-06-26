@@ -30,7 +30,7 @@ class BasePage:
         return self.driver.current_window_handle
 
     def is_new_window_opened(self, action):
-        """ decorator that wraps an action passed as a parameter
+        """ decorator that wraps an action passed as a parameter.
             Checks the number of opened windows before and after running the action
             :param action function to wrap
             :return :True if the difference before number of opened windows before and after is 1, False otherwise
@@ -42,3 +42,12 @@ class BasePage:
             windows_after_click = self.driver.window_handles
             return len(windows_after_click) - len(windows_before_click) == 1
         return wrapper
+
+    def switch_to_root_window(self):
+        self.driver.switch_to.window(self.driver.window_handles[0])
+
+    def switch_to_newly_created_window(self):
+        self.driver.switch_to.window(self.driver.window_handles[1])
+
+    def close_current_window(self):
+        self.driver.close()
