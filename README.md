@@ -25,11 +25,22 @@ your selenium server in being run on;
 
     _(venv) user@user: GL_ProCamp_2020_Selenium/homework_2$ pytest -v_
 
-**For homeworks 3 and 4:**
+**For homework 3:**
 1. cd into the homeworks_3_4 folder;
-2. run pytest with keys -v and -s (-s enables stdout capturing for the listener's output, -v - makes the output more readable):
+2. with pytest and keys -v and -s (-s enables stdout capturing for the listener's output, -v - makes the output more readable),
+run test_suite_hw_3:
 
-    _(venv) user@user: GL_ProCamp_2020_Selenium/homework_3$ pytest -vs_
+    _(venv) user@user: GL_ProCamp_2020_Selenium/homework_3$ pytest -vs src/test/tests/test_suite_hw_3.py_
 
 All the test specified in the HW3 tasks will run one by one separately within the scope of the test suite.
+The decision to run them separately was to have the clearer info - what passed, what failed and where
+
+**For homework 4:**
+1. cd into the homeworks_3_4 folder;
+2. with pytest and keys -v and -s (-s enables stdout capturing for the listener's output, -v - makes the output more readable),
+run test_suite_hw_4:
+
+    _(venv) user@user: GL_ProCamp_2020_Selenium/homework_3$ pytest -vs src/test/tests/test_suite_hw_4.py_
+
+All the test specified in the HW4 tasks will run one by one separately within the scope of the test suite.
 The decision to run them separately was to have the clearer info - what passed, what failed and where 
