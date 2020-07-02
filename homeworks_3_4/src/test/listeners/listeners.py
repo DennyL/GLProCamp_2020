@@ -1,5 +1,5 @@
 from selenium.webdriver.support.events import AbstractEventListener
-from homework_3.src.test.helpers.helpers import highlight_element
+from homeworks_3_4.src.test.helpers.helpers import highlight_element
 
 
 class FindAndClickListener(AbstractEventListener):

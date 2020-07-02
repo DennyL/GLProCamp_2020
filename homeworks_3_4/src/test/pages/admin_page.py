@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-from homework_3.src.test.pages.base_page import BasePage
+from homeworks_3_4.src.test.pages.base_page import BasePage
 
 
 class AdminPageLocators:

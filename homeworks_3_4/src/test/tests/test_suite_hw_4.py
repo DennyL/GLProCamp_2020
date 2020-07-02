@@ -1,5 +1,5 @@
 import pytest
-from homework_3.src.test.pages.main_page import MainPage
+from homeworks_3_4.src.test.pages.main_page import MainPage
 
 
 @pytest.fixture
