@@ -13,7 +13,14 @@ def test_add_items_to_the_cart(main_page):
     """ verifies if items can be added to a cart
         and the qty number on the art badge increases by one as a new item added
     """
-    main_page.click_on(main_page.first_product_in_page)
-    # the click on locator function is being passed to the wrapper 'is_cart_qty_badge_number_grew'
-    # that returns True if the qty number on the badge increased by 1 after the click, or False otherwise
-    assert main_page.is_cart_qty_badge_number_grew(main_page.click_on)(main_page.add_to_cart_button) is True
+    for item in main_page.popular_products_locators(qty=3):
+        main_page.click_on(item)
+        # the click on locator function is being passed to the wrapper 'is_cart_qty_badge_number_grew'
+        # that returns True if the qty number on the badge increased by 1 after the click, or False otherwise
+        assert main_page.is_cart_qty_badge_number_grew(main_page.click_on)(main_page.add_to_cart_button) is True
+        main_page.open()
+    main_page.open_the_cart()
+    main_page.remove_all_items_in_cart()
+    main_page.open()
+    assert main_page.cart_badge_number == 0
+
