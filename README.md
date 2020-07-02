@@ -25,8 +25,8 @@ your selenium server in being run on;
 
     _(venv) user@user: GL_ProCamp_2020_Selenium/homework_2$ pytest -v_
 
-**For homework_3:**
-1. cd into the homework_3 folder;
+**For homeworks 3 and 4:**
+1. cd into the homeworks_3_4 folder;
 2. run pytest with keys -v and -s (-s enables stdout capturing for the listener's output, -v - makes the output more readable):
 
     _(venv) user@user: GL_ProCamp_2020_Selenium/homework_3$ pytest -vs_
