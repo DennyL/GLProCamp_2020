@@ -1,4 +1,4 @@
-from homework_3.src.test.generators import generators
+from homeworks_3_4.src.test.generators import generators
 
 
 class Credentials:

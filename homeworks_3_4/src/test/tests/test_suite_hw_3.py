@@ -1,8 +1,8 @@
 import pytest
 from selenium.webdriver.common.by import By
-from homework_3.src.test.pages.admin_page import AdminPage
-from homework_3.src.test.pages.countries_page import CountriesPage
-from homework_3.src.test.testdata.testdata import Credentials
+from homeworks_3_4.src.test.pages.admin_page import AdminPage
+from homeworks_3_4.src.test.pages.countries_page import CountriesPage
+from homeworks_3_4.src.test.testdata.testdata import Credentials
 
 
 @pytest.fixture(params=Credentials.admin_credentials, scope='session')

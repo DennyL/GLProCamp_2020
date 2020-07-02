@@ -2,7 +2,7 @@ from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.opera import OperaDriverManager
 from selenium.webdriver.support.events import EventFiringWebDriver
-from homework_3.src.test.listeners import listeners
+from homeworks_3_4.src.test.listeners import listeners
 
 
 class Browser:

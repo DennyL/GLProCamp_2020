@@ -1,5 +1,5 @@
 import pytest
-from homework_3.src.test.config import Browser
+from homeworks_3_4.src.test.config import Browser
 
 
 @pytest.fixture(scope='session')
