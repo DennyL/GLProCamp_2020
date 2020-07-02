@@ -2,7 +2,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from homework_3.src.test.pages.base_page import BasePage
-from selenium.common.exceptions import TimeoutException, NoSuchElementException
+from selenium.common.exceptions import TimeoutException, NoSuchElementException, StaleElementReferenceException
 
 
 class MainPageLocators:
@@ -11,10 +11,22 @@ class MainPageLocators:
 
     page_url = 'http://3.122.51.38/litecart/'
 
-    first_product_in_page = (By.CSS_SELECTOR, 'section#box-campaign-products a.link[data-id="1"]')
     add_to_cart_button = (By.CSS_SELECTOR, 'button[name="add_cart_product"]')
     go_to_cart_button = (By.CSS_SELECTOR, 'div#cart a')
     cart_qty_badge = (By.CSS_SELECTOR, 'div#cart a .badge.quantity')
+    cart_remove_item_button = (By.CSS_SELECTOR, '.item button[name="remove_cart_item"]')
+
+    @staticmethod
+    def popular_products_locators(qty) -> list:
+        """
+        generates and returns a list of popular products locators in range of ids provided as a parameter
+        :param qty: number of product locators to be returned
+        :return: list of locators
+        """
+        locators_list = []
+        for id_ in range(1, qty + 1):
+            locators_list.append((By.CSS_SELECTOR, f'section#box-popular-products a.link[data-id="{str(id_)}"]'))
+        return locators_list
 
 
 class MainPage(BasePage, MainPageLocators):
@@ -44,3 +56,21 @@ class MainPage(BasePage, MainPageLocators):
                 return False
             return True
         return wrapper
+
+    @property
+    def cart_badge_number(self) -> int:
+        qty_badge = self.driver.find_element(*self.cart_qty_badge)
+        badge_number = int(qty_badge.text) if qty_badge.text != '' else 0
+        return badge_number
+
+    def open_the_cart(self):
+        self.click_on(self.go_to_cart_button)
+
+    def remove_all_items_in_cart(self):
+        while True:
+            try:
+                self.click_on(self.cart_remove_item_button)
+            except StaleElementReferenceException:
+                continue
+            except (TimeoutException, NoSuchElementException):
+                break
