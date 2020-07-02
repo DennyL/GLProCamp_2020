@@ -9,7 +9,7 @@ from homework_3.src.test.testdata.testdata import Credentials
 def admin_page(browser, request):
     page = AdminPage(browser)
     page.open()
-    page.login_to_the_system(request.param)
+    page.login_with(request.param)
     yield page
 
 
@@ -18,7 +18,7 @@ def countries_page(browser):
     page = CountriesPage(browser)
     page.open()
     # the page been opened, click on the first country in the list
-    page.click_on_element(page.first_country_in_the_list)
+    page.click_on(page.first_country_in_the_list)
     return page
 
 
@@ -29,7 +29,7 @@ def test_presence_of_element_in_pages(admin_page, page_locators, test_element_to
         in all the pages accessible from the left side menu in the admin page
     """
     for element_name, element_locator in page_locators.items():
-        admin_page.click_on_element(element_locator)
+        admin_page.click_on(element_locator)
         assert admin_page.is_element_present_in_page(test_element_to_find) is True
 
 
@@ -40,9 +40,8 @@ def test_countries_external_links(countries_page, external_links):
     """
     for element_name, element_locator in external_links.items():
         # the click on locator function is being passed to the wrapper 'is_new_window_opened'
-        # that returns True if number of opened windows increased by 1 after the click
-        # or False otherwise
-        assert countries_page.is_new_window_opened(countries_page.click_on_element)(element_locator) is True
+        # that returns True if number of opened windows increased by 1 after the click, or False otherwise
+        assert countries_page.is_new_window_opened(countries_page.click_on)(element_locator) is True
         countries_page.switch_to_newly_created_window()
         countries_page.close_current_window()
         countries_page.switch_to_root_window()

@@ -83,7 +83,7 @@ class AdminPage(BasePage, AdminPageLocators):
     def open(self):
         self.driver.get(self.page_url)
 
-    def login_to_the_system(self, credentials: dict):
+    def login_with(self, credentials: dict):
         """ logs in to the on the admin page with the credentials provided as the parameters
             :param credentials: dict with keys {'username'} and {'password'}
         """
