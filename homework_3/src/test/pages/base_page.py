@@ -21,7 +21,7 @@ class BasePage:
             return False
         return True
 
-    def click_on_element(self, locator):
+    def click_on(self, locator):
         WebDriverWait(self.driver, 5).until(ec.element_to_be_clickable(locator))
         self.driver.find_element(*locator).click()
 
