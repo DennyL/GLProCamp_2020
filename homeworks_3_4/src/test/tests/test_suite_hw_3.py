@@ -2,24 +2,6 @@ import pytest
 from selenium.webdriver.common.by import By
 from homeworks_3_4.src.test.pages.admin_page import AdminPage
 from homeworks_3_4.src.test.pages.countries_page import CountriesPage
-from homeworks_3_4.src.test.testdata.testdata import Credentials
-
-
-@pytest.fixture(params=Credentials.admin_credentials, scope='session')
-def admin_page(browser, request):
-    page = AdminPage(browser)
-    page.open()
-    page.login_with(request.param)
-    yield page
-
-
-@pytest.fixture(scope='session')
-def countries_page(browser):
-    page = CountriesPage(browser)
-    page.open()
-    # the page been opened, click on the first country in the list
-    page.click_on(page.first_country_in_the_list)
-    return page
 
 
 @pytest.mark.parametrize('page_locators', AdminPage.left_side_menu_items_locators)

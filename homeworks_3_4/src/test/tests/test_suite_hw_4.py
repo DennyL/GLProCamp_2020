@@ -1,13 +1,3 @@
-import pytest
-from homeworks_3_4.src.test.pages.main_page import MainPage
-
-
-@pytest.fixture(scope='session')
-def main_page(browser):
-    page = MainPage(browser)
-    page.open()
-    yield page
-
 
 def test_add_items_to_the_cart(main_page):
     """ verifies if items can be added to a cart,
