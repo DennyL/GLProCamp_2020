@@ -1,5 +1,4 @@
 import pytest
-from time import sleep
 
 
 @pytest.fixture
@@ -12,8 +11,8 @@ def product_creation(catalog_page):
 
 
 def test_add_items_to_the_cart(main_page):
-    """ verifies if items can be added to a cart,
-        and the qty number on the cart badge increases by one as a new item added
+    """ verifies if product items can be added to a cart,
+        and that the qty number on the cart badge increases by one as a new item added
     """
     for item in main_page.popular_products_locators(qty=3):
         main_page.click_on(item)
@@ -24,7 +23,7 @@ def test_add_items_to_the_cart(main_page):
 
 
 def test_remove_all_items_from_cart(main_page):
-    """ verifies if items can be removed from a cart,
+    """ verifies if product items can be removed from a cart,
         and the qty number on the cart badge displays nothing after all items were removed
     """
     main_page.open()
@@ -36,7 +35,7 @@ def test_remove_all_items_from_cart(main_page):
 
 def test_product_creation(catalog_page, product_creation):
     """
-        creates a product in the catalog page,
+        verifies creation of a product in the catalog page,
         and verifies if the product created appeared in the root list in the Catalog page
     """
     catalog_page.click_on(catalog_page.add_new_product_button)
