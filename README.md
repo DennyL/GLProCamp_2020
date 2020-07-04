@@ -4,9 +4,9 @@ Selenium section**
 **For all homeworks:**
 1. Create virtual environment;
 2. Activate the virtual environment;
-3. Install all the libraries from the requirements file in the root folder:
+3. Install into the virtual environment all the modules from the 'requirements' file in the root folder:
 
-    _$ pip install -r requirements_
+    _(venv) user@user$ GL_ProCamp_2020_Selenium$ pip install -r requirements_
 
 **For homework_1:**
 1. cd into the homework_1 folder;
@@ -30,7 +30,7 @@ your selenium server in being run on;
 2. with pytest and keys -v and -s (-s enables stdout capturing for the listener's output, -v - makes the output more readable),
 run test_suite_hw_3:
 
-    _(venv) user@user: GL_ProCamp_2020_Selenium/homework_3$ pytest -vs src/test/tests/test_suite_hw_3.py_
+    _(venv) user@user: GL_ProCamp_2020_Selenium/homeworks_3_4$ pytest -vs src/test/tests/test_suite_hw_3.py_
 
 All the test specified in the HW3 tasks will run one by one separately within the scope of the test suite.
 The decision to run them separately was to have the clearer info - what passed, what failed and where
@@ -40,7 +40,13 @@ The decision to run them separately was to have the clearer info - what passed, 
 2. with pytest and keys -v and -s (-s enables stdout capturing for the listener's output, -v - makes the output more readable),
 run test_suite_hw_4:
 
-    _(venv) user@user: GL_ProCamp_2020_Selenium/homework_3$ pytest -vs src/test/tests/test_suite_hw_4.py_
+    _(venv) user@user: GL_ProCamp_2020_Selenium/homeworks_3_4$ pytest -vs src/test/tests/test_suite_hw_4.py_
 
 All the test specified in the HW4 tasks will run one by one separately within the scope of the test suite.
-The decision to run them separately was to have the clearer info - what passed, what failed and where 
+The decision to run them separately was to have the clearer info - what passed, what failed and where
+
+**To run all the tests from homework 3 and 4 in a sequence**
+1. cd into the homeworks_3_4 folder;
+2. run pytest with the keys desired (-v, -s, --setup-show, whatever):
+
+     _(venv) user@user: GL_ProCamp_2020_Selenium/homeworks_3_4$ pytest -v_

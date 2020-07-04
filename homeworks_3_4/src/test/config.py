@@ -5,6 +5,10 @@ from selenium.webdriver.support.events import EventFiringWebDriver
 from homeworks_3_4.src.test.listeners import listeners
 
 
+class Links:
+    LINK_TO_IMAGES_FOLDER = 'src/test/testdata/images'
+
+
 class Browser:
     def __init__(self, with_browser='chrome'):
         if with_browser.lower() == 'chrome':
@@ -21,6 +25,7 @@ class Browser:
         # to switch to a plain driver
         # UNCOMMENT THE LINE BELOW:
         # self.driver = self.plain_driver
+        self.driver.maximize_window()
 
     def destroy_and_quit(self):
         self.driver.quit()

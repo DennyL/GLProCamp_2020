@@ -31,7 +31,7 @@ class MainPageLocators:
 
 class MainPage(BasePage, MainPageLocators):
 
-    """ Methods to work with the Main Page """
+    """ Methods to interact with the Main Page """
 
     def open(self):
         self.driver.get(self.page_url)
@@ -59,14 +59,19 @@ class MainPage(BasePage, MainPageLocators):
 
     @property
     def cart_badge_number(self) -> int:
+        """
+            :returns : a number displayed on the cart badge
+        """
         qty_badge = self.driver.find_element(*self.cart_qty_badge)
         badge_number = int(qty_badge.text) if qty_badge.text != '' else 0
         return badge_number
 
     def open_the_cart(self):
+        """ opens the cart by clicking on the cart icon """
         self.click_on(self.go_to_cart_button)
 
     def remove_all_items_in_cart(self):
+        """ removes all items from the cart by clicking on the Remove button against each item in there """
         while True:
             try:
                 self.click_on(self.cart_remove_item_button)

@@ -4,6 +4,7 @@ from homeworks_3_4.src.test.testdata.testdata import Credentials
 from homeworks_3_4.src.test.pages.admin_page import AdminPage
 from homeworks_3_4.src.test.pages.main_page import MainPage
 from homeworks_3_4.src.test.pages.countries_page import CountriesPage
+from homeworks_3_4.src.test.pages.catalog_page import CatalogPage
 
 
 @pytest.fixture(scope='session')
@@ -34,4 +35,11 @@ def countries_page(browser, admin_page):
     page.open()
     # click on the first country in the list
     page.click_on(page.first_country_in_the_list)
+    yield page
+
+
+@pytest.fixture
+def catalog_page(browser, admin_page):
+    page = CatalogPage(browser)
+    page.open()
     yield page
