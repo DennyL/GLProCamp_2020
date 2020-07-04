@@ -23,9 +23,10 @@ class CountriesPageLocators:
 
 class CountriesPage(BasePage, CountriesPageLocators):
 
-    """ Methods to work with the Countries Page """
+    """ Methods to interact with the Countries Page """
 
     def open(self):
+        """ opens the Countries page from Admin page. Admin page has to be opened beforehand """
         page_locator = (By.CSS_SELECTOR, 'ul#box-apps-menu li.app[data-code=countries]')
         WebDriverWait(self.driver, 5).until(ec.element_to_be_clickable(page_locator))
         self.driver.find_element(*page_locator).click()

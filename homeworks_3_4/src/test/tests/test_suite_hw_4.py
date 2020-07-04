@@ -1,3 +1,15 @@
+import pytest
+from time import sleep
+
+
+@pytest.fixture
+def product_creation(catalog_page):
+    """ TEARDOWN for tests that create products.
+        Removes the product created from the app Catalog
+    """
+    yield
+    catalog_page.remove_created_products_from_catalog(keyword='item')
+
 
 def test_add_items_to_the_cart(main_page):
     """ verifies if items can be added to a cart,
@@ -21,3 +33,12 @@ def test_remove_all_items_from_cart(main_page):
     main_page.open()
     assert main_page.cart_badge_number == 0
 
+
+def test_product_creation(catalog_page, product_creation):
+    """
+        creates a product in the catalog page,
+        and verifies if the product created appeared in the root list in the Catalog page
+    """
+    catalog_page.click_on(catalog_page.add_new_product_button)
+    name_of_product_created = catalog_page.create_product()
+    assert catalog_page.is_product_in_the_root_catalog(name_of_product_created)

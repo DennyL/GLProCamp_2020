@@ -78,9 +78,10 @@ class AdminPageLocators:
 
 class AdminPage(BasePage, AdminPageLocators):
 
-    """ Methods to work with the Admin Page """
+    """ Methods to interact with the Admin Page """
 
     def open(self):
+        """ Opens the Admin Page """
         self.driver.get(self.page_url)
 
     def login_with(self, credentials: dict):

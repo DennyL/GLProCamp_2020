@@ -22,6 +22,10 @@ class BasePage:
         return True
 
     def click_on(self, locator):
+        """
+            waits for an element to be clickable and clicks on it
+            :param : element locator
+        """
         WebDriverWait(self.driver, 5).until(ec.element_to_be_clickable(locator))
         self.driver.find_element(*locator).click()
 
@@ -30,9 +34,9 @@ class BasePage:
         return self.driver.current_window_handle
 
     def is_new_window_opened(self, action):
-        """ decorator that wraps an action passed as a parameter.
+        """ a decorator that wraps an action passed as a parameter.
             Checks the number of opened windows before and after running the action
-            :param action function to wrap
+            :param action function to be wrapped
             :return :True if the difference before number of opened windows before and after is 1, False otherwise
         """
         def wrapper(locator):
