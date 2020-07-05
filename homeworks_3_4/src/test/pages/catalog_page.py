@@ -126,7 +126,7 @@ class CatalogPage(BasePage, CatalogPageLocators):
             :param name: a str the product name is being consisted with
             :return: True if an element with the name given is present, False otherwise
         """
-        self.driver.find_element(*self.catalog_page_main).click()
+        self.driver.find_element(*self.catalog_subpage).click()
         product_locator = (By.XPATH, f'//a[contains(text(), {name})]')
         try:
             self.driver.find_element(*product_locator)
