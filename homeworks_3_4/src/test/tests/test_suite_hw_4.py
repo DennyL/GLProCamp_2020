@@ -40,4 +40,4 @@ def test_product_creation(catalog_page, product_creation):
     """
     catalog_page.click_on(catalog_page.add_new_product_button)
     name_of_product_created = catalog_page.create_product()
-    assert catalog_page.is_product_in_the_root_catalog(name_of_product_created)
+    assert catalog_page.is_product_in_the_root_catalog(name_of_product_created) is True
