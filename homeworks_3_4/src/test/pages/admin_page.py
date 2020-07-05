@@ -11,6 +11,8 @@ class AdminPageLocators:
     password_box = (By.CSS_SELECTOR, 'input.form-control[name=password]')
     login_button = (By.CSS_SELECTOR, 'button[name=login]')
 
+    header_for_all_pages = (By.CSS_SELECTOR, 'div.panel-heading')
+
     ### LEFT SIDE-MENU ITEMS ###
     left_side_menu_items_locators = (
         {'Appearance main': (By.CSS_SELECTOR, 'ul#box-apps-menu li.app[data-code=appearance]')},
