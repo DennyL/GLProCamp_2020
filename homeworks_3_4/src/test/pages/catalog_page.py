@@ -9,6 +9,9 @@ from homeworks_3_4.src.test.testdata.testdata import Product
 
 class CatalogPageLocators:
 
+    catalog_page_main = (By.CSS_SELECTOR, 'ul#box-apps-menu li.app[data-code=catalog]')
+    catalog_subpage = (By.CSS_SELECTOR, 'li.doc[data-code=catalog]')
+
     add_new_product_button = (By.XPATH, '//ul[@class="list-inline"]//li[2]/a')
     add_new_category_button = (By.XPATH, '//ul[@class="list-inline"]//li[1]/a')
     select_all_products_checkbox = (By.CSS_SELECTOR, 'i[data-toggle="checkbox-toggle"]')
@@ -52,9 +55,8 @@ class CatalogPage(BasePage, CatalogPageLocators):
 
     def open(self):
         """ opens the Catalog page from Admin page. Admin page has to be opened beforehand """
-        page_locator = (By.CSS_SELECTOR, 'ul#box-apps-menu li.app[data-code=catalog]')
-        WebDriverWait(self.driver, 5).until(ec.element_to_be_clickable(page_locator))
-        self.driver.find_element(*page_locator).click()
+        WebDriverWait(self.driver, 5).until(ec.element_to_be_clickable(self.catalog_page_main))
+        self.driver.find_element(*self.catalog_page_main).click()
 
     def upload_product_image(self, abs_path_to_image: str):
         """
@@ -124,7 +126,7 @@ class CatalogPage(BasePage, CatalogPageLocators):
             :param name: a str the product name is being consisted with
             :return: True if an element with the name given is present, False otherwise
         """
-        self.driver.find_element(By.CSS_SELECTOR, 'li.doc[data-code=catalog]').click()
+        self.driver.find_element(*self.catalog_page_main).click()
         product_locator = (By.XPATH, f'//a[contains(text(), {name})]')
         try:
             self.driver.find_element(*product_locator)
@@ -140,7 +142,7 @@ class CatalogPage(BasePage, CatalogPageLocators):
             since the items created by this framework are configured to start with 'item_' word
             in the generators/item_names_generator()
         """
-        self.driver.find_element(By.CSS_SELECTOR, 'li.doc[data-code=catalog]').click()
+        self.driver.find_element(*self.catalog_subpage).click()
         WebDriverWait(self.driver, 5).until(ec.presence_of_element_located(self.search_box))
         self.driver.find_element(*self.search_box).send_keys(keyword)
         self.driver.find_element(*self.search_button).click()
@@ -151,4 +153,5 @@ class CatalogPage(BasePage, CatalogPageLocators):
         # the following step (switch to the Catalog page) was added
         # to let the server a few milliseconds to apply items removal,
         # because without that server sometimes does not have time to accept the change
-        self.driver.find_element(By.CSS_SELECTOR, 'li.doc[data-code=catalog]').click()
+        WebDriverWait(self.driver, 5).until(ec.element_to_be_clickable(self.catalog_subpage))
+        self.driver.find_element(*self.catalog_subpage).click()

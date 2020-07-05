@@ -4,21 +4,21 @@ from random import choice
 from homeworks_3_4.src.test.config import Links
 
 
-def item_names_generator(length=8) -> str:
+def item_names_generator(prefix='item_', length=8) -> str:
     """
-        :param : desired number of random symbols following the 'item_' title
-        :returns : a string 'item_' followed by a row of random numbers
+        :param : desired number of random symbols following the prefix
+        :returns : a string headed with the prefix provided followed by a row of random numbers
     """
     chars = ascii_letters + digits
-    return 'item_' + ''.join(choice(chars) for _ in range(length))
+    return prefix + ''.join(choice(chars) for _ in range(length))
 
 
-def item_codes_generator(length=3) -> str:
+def item_codes_generator(prefix='#', length=5) -> str:
     """
-        :param : desired number of random digits in a returned sequence
-        :returns : a string sequence of random numbers
+        :param : desired number of random digits in a returned sequence following the prefix
+        :returns : a string sequence of random numbers with the prefix provided
     """
-    return ''.join(choice(digits) for _ in range(length))
+    return prefix + ''.join(choice(digits) for _ in range(length))
 
 
 def item_picture_provider():

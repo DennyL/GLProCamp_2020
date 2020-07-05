@@ -1,18 +1,17 @@
 import pytest
-from selenium.webdriver.common.by import By
 from homeworks_3_4.src.test.pages.admin_page import AdminPage
 from homeworks_3_4.src.test.pages.countries_page import CountriesPage
 
 
 @pytest.mark.parametrize('page_locators', AdminPage.left_side_menu_items_locators)
-@pytest.mark.parametrize('test_element_to_find', ((By.CSS_SELECTOR, 'div.panel-heading'),))
-def test_presence_of_element_in_pages(admin_page, page_locators, test_element_to_find,):
-    """ verifies if the element passed as a parameter is present
-        in all the pages accessible from the left side menu in the admin page
+@pytest.mark.parametrize('header', (AdminPage.header_for_all_pages,))
+def test_presence_of_element_in_pages(admin_page, page_locators, header):
+    """ verifies if the header is present in all the pages
+        accessible from the left side menu in the admin page
     """
     for element_name, element_locator in page_locators.items():
         admin_page.click_on(element_locator)
-        assert admin_page.is_element_present_in_page(test_element_to_find) is True
+        assert admin_page.is_element_present_in_page(header) is True
 
 
 @pytest.mark.parametrize('external_links', CountriesPage.in_country_external_links_locators)

@@ -15,12 +15,12 @@ class Product:
     def __init__(self):
 
         # GENERAL
-        self.product_name = generators.item_names_generator(length=8)
-        self.code = generators.item_codes_generator(length=3)
-        self.sku = generators.item_codes_generator(length=4)
-        self.mpn = generators.item_codes_generator(length=2)
-        self.gtin = generators.item_codes_generator(length=5)
-        self.taric = generators.item_codes_generator(length=5)
+        self.product_name = generators.item_names_generator(prefix='item_', length=8)
+        self.code = generators.item_codes_generator(prefix='#', length=3)
+        self.sku = generators.item_codes_generator(prefix='SKU_', length=4)
+        self.mpn = generators.item_codes_generator(prefix='MPN_', length=5)
+        self.gtin = generators.item_codes_generator(prefix='GTIN_', length=5)
+        self.taric = generators.item_codes_generator(prefix='TARIC_', length=5)
         self.manufacturer = '1'
         self.date_valid_from = '10/02/2019'
         self.date_valid_to = '11/03/2020'
