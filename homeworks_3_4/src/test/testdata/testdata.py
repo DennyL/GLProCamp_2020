@@ -10,7 +10,7 @@ class Credentials:
 
 class Product:
     """
-       used to create product instances with random fields
+       used to create product instances
     """
     def __init__(self):
 
@@ -40,8 +40,8 @@ class Product:
         self.purchase_price_currency = 'USD'
         self.price_usd = '50'
 
-    def __str__(self):
-        """ displays of the fields of a product instance """
+    def __str__(self) -> str:
+        """ :returns a string with all the fields of a product instance """
         product_info = []
         for k, v in self.__dict__.items():
             product_info.append(f'\n{k.upper()} : {str(v)}')
